@@ -1,20 +1,13 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import WordDisplay from './components/WordDisplay'
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import { HomeScreen } from './views/HomeScreen'
+import { ReadScreen } from './views/ReadScreen'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <WordDisplay />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const MainNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  Read: {screen: ReadScreen},
 });
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
