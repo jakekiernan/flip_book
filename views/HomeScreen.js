@@ -1,31 +1,31 @@
 import React from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
 export class HomeScreen extends React.Component {
   render () {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={styles.innerContainer}>
-          <Button 
-            title="Shakespeare"
-            onPress={() => navigate('Read', {author: 'shakespeare'})}
-            style={styles.item} />
-          <Button
-            title="Dostoevsky"
-            onPress={() => navigate('Read', {author: 'dostoevsky'})}
-            style={styles.item} />
-        </View>
-        <View style={styles.innerContainer}>
-          <Button
-            title="George Eliot"
-            onPress={() => navigate('Read', {author: 'eliot'})}
-            style={styles.item} />
-          <Button
-            title="Mary Shelley"
-            onPress={() => navigate('Read', {author: 'shelley'})}
-            style={styles.item} />
-        </View>
+        <Text 
+          onPress={() => navigate('Read', {author: 'shakespeare'})}
+          style={styles.item}>
+          Shakespeare
+        </Text>
+        <Text
+          onPress={() => navigate('Read', {author: 'dostoevsky'})}
+          style={styles.item}>
+          Dostoevsky
+        </Text>
+        <Text
+          onPress={() => navigate('Read', {author: 'eliot'})}
+          style={styles.item}>
+          Eliot
+        </Text>
+        <Text
+          onPress={() => navigate('Read', {author: 'shelley'})}
+          style={styles.item}>
+          Shelley
+        </Text>
       </View>
     );
   }
@@ -33,16 +33,24 @@ export class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
-  innerContainer: {
+    minHeight: '50%',
+    display: 'flex',
+    flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   item: {
-    width: 200,
-    flexGrow: 1,
+    paddingTop: '45%',
+    display: 'flex',
+    flexBasis: '50%', 
+    justifyContent: 'center',
+    flexDirection: 'column',
+    textAlign: 'center',
+    color: 'white',
+    backgroundColor: '#38A1F3',
+    fontSize: 24,
+    fontWeight: 'bold',
+    borderStyle: 'solid',
+    borderColor: 'white',
+    borderWidth: 1,
   },
 });
