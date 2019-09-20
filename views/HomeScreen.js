@@ -1,35 +1,31 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 
-export class HomeScreen extends React.Component {
-  render () {
-    const { navigate } = this.props.navigation;
-
-    return (
-      <View style={styles.container}>
-        <Text 
-          onPress={() => navigate('Read', {author: 'shakespeare'})}
-          style={styles.item}>
-          Shakespeare
-        </Text>
-        <Text
-          onPress={() => navigate('Read', {author: 'dostoevsky'})}
-          style={styles.item}>
-          Dostoevsky
-        </Text>
-        <Text
-          onPress={() => navigate('Read', {author: 'eliot'})}
-          style={styles.item}>
-          Eliot
-        </Text>
-        <Text
-          onPress={() => navigate('Read', {author: 'shelley'})}
-          style={styles.item}>
-          Shelley
-        </Text>
-      </View>
-    );
-  }
+export function HomeScreen ({navigation: { navigate }}) {
+  return (
+    <View style={styles.container}>
+      <Text 
+        onPress={() => navigate('Read', {author: 'shakespeare'})}
+        style={styles.item}>
+        Shakespeare
+      </Text>
+      <Text
+        onPress={() => navigate('Read', {author: 'dostoevsky'})}
+        style={styles.item}>
+        Dostoevsky
+      </Text>
+      <Text
+        onPress={() => navigate('Read', {author: 'eliot'})}
+        style={styles.item}>
+        Eliot
+      </Text>
+      <Text
+        onPress={() => navigate('Read', {author: 'shelley'})}
+        style={styles.item}>
+        Shelley
+      </Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

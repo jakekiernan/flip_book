@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import { StyleSheet, View, Text } from 'react-native';
-import { HomeScreen } from './views/HomeScreen'
-import { ReadScreen } from './views/ReadScreen'
-import { FooterBar } from './components/FooterBar'
+import { StyleSheet, View } from 'react-native';
+import { HomeScreen } from './views/HomeScreen';
+import { ReadScreen } from './views/ReadScreen';
+import { FooterBar } from './components/FooterBar';
 
 const MainNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
   Read: { screen: ReadScreen },
 });
-
 const Routing = createAppContainer(MainNavigator);
 
 function App() {

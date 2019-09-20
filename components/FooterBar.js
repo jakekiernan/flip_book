@@ -1,15 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import NumericInput from 'react-native-numeric-input';
+import { StyleSheet, Text, View } from 'react-native';
+import { Incrementer } from './NumericInput';
 
 export function FooterBar({ speed, setSpeed }) {
   return (
     <View style={styles.container}>
       <Text>Flip Speed</Text>
-      <NumericInput 
-        value={speed}
-        onChange={value => setSpeed(speed = value)}
-        step={25}/>
+      <Incrementer 
+        speed={speed}
+        setSpeed={setSpeed} />
     </View>
   );
 }
@@ -20,11 +19,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  input: {
-    textAlign: 'center',
-    height: 40,
-    width: 100,
-    borderColor: 'gray',
-    borderWidth: 1,
-  }
 });
