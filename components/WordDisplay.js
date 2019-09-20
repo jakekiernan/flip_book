@@ -4,7 +4,7 @@ import { splitArr, showWord, useInterval } from '../utils/readUtils';
 import { texts } from '../assets/texts';
 import { get } from 'lodash';
 
-export function WordDisplay({ textKey }) {
+export function WordDisplay({ textKey, speed }) {
   const [count, setCount] = useState(0);
   const text = get(texts, textKey);
 
@@ -13,7 +13,7 @@ export function WordDisplay({ textKey }) {
       return;
     }
     setCount(count + 1);
-  }, 200);
+  }, speed);
 
   return (
     <View style={styles.container}>

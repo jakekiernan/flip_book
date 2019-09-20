@@ -3,7 +3,8 @@ import { Text, StyleSheet, View } from 'react-native';
 
 export class HomeScreen extends React.Component {
   render () {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.container}>
         <Text 
@@ -34,12 +35,11 @@ export class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     minHeight: '50%',
-    display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
   },
   item: {
-    paddingTop: '45%',
+    paddingTop: '40%',
     display: 'flex',
     flexBasis: '50%', 
     justifyContent: 'center',
