@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, View } from 'react-native';
-import { WordDisplay } from '../components/WordDisplay';
+import { WordDisplay } from '../components';
 
 export function ReadScreen ({ 
   navigation: { navigate, state: {params: { author }}},

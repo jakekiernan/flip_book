@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { StyleSheet, View } from 'react-native';
-import { HomeScreen } from './views/HomeScreen';
-import { ReadScreen } from './views/ReadScreen';
-import { FooterBar } from './components/FooterBar';
-import { convertSpeed } from './utils/speedUtils';
+import { HomeScreen, ReadScreen } from './views';
+import { FooterBar } from './components';
+import { convertSpeed } from './utils';
 
 const MainNavigator = createStackNavigator({
   Home: { screen: HomeScreen },

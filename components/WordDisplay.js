@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { splitArr, showWord, useInterval } from '../utils/readUtils';
+import { splitArr, showWord, useInterval } from '../utils';
 import { texts } from '../assets/texts';
 import { get } from 'lodash';
 
