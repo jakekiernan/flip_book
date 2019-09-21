@@ -7,7 +7,7 @@ export function SliderBar({ speed, setSpeed }) {
     <Slider
       value={speed}
       onValueChange={value => setSpeed(speed = value)}
-      step={5}
+      step={1}
       style={styles.slider}
       minimumValue={0}
       maximumValue={100}
