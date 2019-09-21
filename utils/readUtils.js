@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 
 const splitArr = text => {
   return text.split(" ");
-}
+};
 
 const showWord = (arr, index) => {
   return arr[index];
-}
+};
 
 const useInterval = (callback, delay) => {
   const savedCallback = useRef();
@@ -24,6 +24,6 @@ const useInterval = (callback, delay) => {
       return () => clearInterval(id);
     }
   }, [delay]);
-}
+};
 
 export {splitArr, showWord, useInterval};
