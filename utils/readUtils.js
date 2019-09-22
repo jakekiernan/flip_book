@@ -26,4 +26,10 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 
-export {splitArr, showWord, useInterval};
+const getFirstTen = text => {
+  const arr = text.split(" ");
+  const firstFive = arr.slice(0, 10);
+  return firstFive.join(" ");
+}
+
+export { getFirstTen, showWord, splitArr, useInterval };

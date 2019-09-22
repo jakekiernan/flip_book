@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { splitArr, showWord, useInterval } from '../utils';
-import { texts } from '../assets/texts';
-import { get } from 'lodash';
+import { splitArr, showWord } from '../utils';
 
-export function WordDisplay({ textKey, speed }) {
-  const [count, setCount] = useState(0);
-  const text = get(texts, textKey);
-
-  useInterval(() => {
-    if (count >= splitArr(text).length) {
-      return;
-    }
-    setCount(count + 1);
-  }, speed);
-
+export function WordDisplay({ text, count }) {
   return (
     <View style={styles.container}>
       <Text

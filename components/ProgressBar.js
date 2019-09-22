@@ -2,15 +2,16 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Slider } from 'react-native';
 
-export function SliderBar({ speed, setSpeed }) {
+export function ProgressBar({ textLen, countObj }) {
+  let { count, setCount } = countObj;
+
   return (
     <Slider
-      value={speed}
-      onValueChange={value => setSpeed(speed = value)}
+      value={count}
+      maximumValue={textLen}
+      onValueChange={value => setCount(count = value)}
       step={1}
       style={styles.slider}
-      minimumValue={0}
-      maximumValue={100}
       minimumTrackTintColor="#1E1E1E"
       maximumTrackTintColor="#1E1E1E"
       thumbTintColor="#2D2D30"/>

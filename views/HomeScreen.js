@@ -1,51 +1,101 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
+import { get } from 'lodash';
+import { texts } from '../assets/texts';
+import { getFirstTen } from '../utils';
 
-export function HomeScreen ({navigation: { navigate }}) {
+export function HomeScreen ({
+  navigation: { navigate },
+  screenProps }) {
+
+  let { text, setText } = screenProps.textObj;
+  let { reset } = screenProps.countObj;
+  const resetRef = useRef(true);
+
+  useEffect(() => {
+    if (resetRef) {
+      reset()
+    }
+  }, [resetRef.current])
+
+  resetRef.current = false;
+
   return (
     <View style={styles.container}>
-      <Text 
-        onPress={() => navigate('Read', {author: 'shakespeare'})}
-        style={styles.item}>
-        Shakespeare
-      </Text>
-      <Text
-        onPress={() => navigate('Read', {author: 'dostoevsky'})}
-        style={styles.item}>
-        Dostoevsky
-      </Text>
-      <Text
-        onPress={() => navigate('Read', {author: 'eliot'})}
-        style={styles.item}>
-        Eliot
-      </Text>
-      <Text
-        onPress={() => navigate('Read', {author: 'shelley'})}
-        style={styles.item}>
-        Shelley
-      </Text>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'shakespeare'))
+            navigate('Read')
+          }}>
+          Shakespeare
+        </Text>
+        <Text style={styles.previewText}>
+          {getFirstTen(get(texts, 'shakespeare'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'dostoevsky'))
+            navigate('Read')
+          }}>
+          Dostoevsky
+        </Text>
+        <Text style={styles.previewText}>
+          {getFirstTen(get(texts, 'dostoevsky'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'eliot'))
+            navigate('Read')
+          }}>
+          Eliot
+        </Text>
+        <Text style={styles.previewText}>
+          {getFirstTen(get(texts, 'eliot'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'shelley'))
+            navigate('Read')
+          }}>
+          Shelley
+        </Text>
+        <Text style={styles.previewText}>
+          {getFirstTen(get(texts, 'shelley'))}...
+        </Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: '50%',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
+    display: 'flex',
   },
   item: {
-    paddingTop: '40%',
+    padding: 10,
     display: 'flex',
-    flexBasis: '50%', 
-    justifyContent: 'center',
-    textAlign: 'center',
+    backgroundColor: '#1E1E1E',
+    borderColor: '#2D2D30',
+    borderWidth: 1,
+  },
+  author: {
     color: 'white',
-    backgroundColor: '#38A1F3',
     fontSize: 24,
     fontWeight: 'bold',
-    borderStyle: 'solid',
-    borderColor: 'white',
-    borderWidth: 1,
+  },
+  previewText: {
+    color: 'white',
+
   },
 });
