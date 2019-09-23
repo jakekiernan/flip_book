@@ -1,37 +1,33 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { get } from 'lodash';
 import { texts } from '../assets/texts';
-import { getFirstTen } from '../utils';
+import { getFirstTen, resetCounter } from '../utils';
 
-export function HomeScreen ({
-  navigation: { navigate },
-  screenProps }) {
+export function HomeScreen ({navigation: { navigate }, screenProps }) {
+  let { setText } = screenProps.textObj;
+  let { reset } = screenProps.countObj; // TODO find a better way of passing props through react-navigation-stack
 
-  let { text, setText } = screenProps.textObj;
-  let { reset } = screenProps.countObj;
-  const resetRef = useRef(true);
-
-  useEffect(() => {
-    if (resetRef) {
-      reset()
-    }
-  }, [resetRef.current])
-
-  resetRef.current = false;
+  // resetCounter(reset, 'home');
 
   return (
     <View style={styles.container}>
-      <View style={styles.item}>
+      <View
+        style={styles.item}>
         <Text
           style={styles.author}
           onPress={() => {
             setText(text = get(texts, 'shakespeare'))
             navigate('Read')
           }}>
-          Shakespeare
+          William Shakespeare
         </Text>
-        <Text style={styles.previewText}>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'shakespeare'))
+            navigate('Read')
+          }}>
           {getFirstTen(get(texts, 'shakespeare'))}...
         </Text>
       </View>
@@ -42,9 +38,14 @@ export function HomeScreen ({
             setText(text = get(texts, 'dostoevsky'))
             navigate('Read')
           }}>
-          Dostoevsky
+          Fyodor Dostoevsky
         </Text>
-        <Text style={styles.previewText}>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'dostoevsky'))
+            navigate('Read')
+          }}>
           {getFirstTen(get(texts, 'dostoevsky'))}...
         </Text>
       </View>
@@ -55,9 +56,14 @@ export function HomeScreen ({
             setText(text = get(texts, 'eliot'))
             navigate('Read')
           }}>
-          Eliot
+          George Eliot
         </Text>
-        <Text style={styles.previewText}>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'eliot'))
+            navigate('Read')
+          }}>
           {getFirstTen(get(texts, 'eliot'))}...
         </Text>
       </View>
@@ -68,10 +74,123 @@ export function HomeScreen ({
             setText(text = get(texts, 'shelley'))
             navigate('Read')
           }}>
-          Shelley
+          Mary Shelley
         </Text>
-        <Text style={styles.previewText}>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'shelley'))
+            navigate('Read')
+          }}>
           {getFirstTen(get(texts, 'shelley'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'dickens'))
+            navigate('Read')
+          }}>
+          Charles Dickens
+        </Text>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'dickens'))
+            navigate('Read')
+          }}>
+          {getFirstTen(get(texts, 'dickens'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'twain'))
+            navigate('Read')
+          }}>
+          Mark Twain
+        </Text>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'twain'))
+            navigate('Read')
+          }}>
+          {getFirstTen(get(texts, 'twain'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'woolf'))
+            navigate('Read')
+          }}>
+          Virgina Woolf
+        </Text>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'woolf'))
+            navigate('Read')
+          }}>
+          {getFirstTen(get(texts, 'woolf'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'hemingway'))
+            navigate('Read')
+          }}>
+          Ernest Hemingway
+        </Text>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'hemingway'))
+            navigate('Read')
+          }}>
+          {getFirstTen(get(texts, 'hemingway'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'tolstoy'))
+            navigate('Read')
+          }}>
+          Leo Tolstoy
+        </Text>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'tolstoy'))
+            navigate('Read')
+          }}>
+          {getFirstTen(get(texts, 'tolstoy'))}...
+        </Text>
+      </View>
+      <View style={styles.item}>
+        <Text
+          style={styles.author}
+          onPress={() => {
+            setText(text = get(texts, 'christie'))
+            navigate('Read')
+          }}>
+          Agatha Christie
+        </Text>
+        <Text
+          style={styles.previewText}
+          onPress={() => {
+            setText(text = get(texts, 'christie'))
+            navigate('Read')
+          }}>
+          {getFirstTen(get(texts, 'christie'))}...
         </Text>
       </View>
     </View>
@@ -96,6 +215,5 @@ const styles = StyleSheet.create({
   },
   previewText: {
     color: 'white',
-
   },
 });

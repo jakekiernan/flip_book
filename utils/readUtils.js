@@ -26,10 +26,21 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 
+const resetCounter = (callback, page) => {
+  const savedCallback = useRef();
+
+  useEffect(() => {
+    savedCallback.current = callback;
+    if (page === 'home') {
+      savedCallback.current();
+    }
+  });
+};
+
 const getFirstTen = text => {
   const arr = text.split(" ");
   const firstFive = arr.slice(0, 10);
   return firstFive.join(" ");
-}
+};
 
-export { getFirstTen, showWord, splitArr, useInterval };
+export { getFirstTen, resetCounter, showWord, splitArr, useInterval };

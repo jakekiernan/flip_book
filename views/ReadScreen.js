@@ -1,14 +1,11 @@
 import React from 'react';
-import { Button, StyleSheet, View, Text} from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 import { WordDisplay } from '../components';
 import { useInterval, convertSpeed, splitArr, invertNumber } from '../utils'
 
-export function ReadScreen ({ 
-  navigation: { navigate },
-  screenProps }) { // TODO find a better way of passing props through react-navigation-stack
-
+export function ReadScreen ({ navigation: { navigate }, screenProps }) {
   const { text } = screenProps.textObj
-  const { countObj: { count, setCount }, speed } = screenProps
+  const { countObj: { count, setCount }, speed } = screenProps // TODO find a better way of passing props through react-navigation-stack
 
   useInterval(() => {
     if (count >= splitArr(text).length) {
