@@ -6,7 +6,7 @@ import { getFirstTen, resetCounter } from '../utils';
 
 export function HomeScreen ({navigation: { navigate }, screenProps }) {
   let { setText } = screenProps.textObj;
-  let { reset } = screenProps.countObj; // TODO find a better way of passing props through react-navigation-stack
+  let { reset } = screenProps.countObj; // TODO replace screenProps with useContext https://reactjs.org/docs/hooks-reference.html#usecontext
 
   // resetCounter(reset, 'home');
 
@@ -18,7 +18,7 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
           style={styles.author}
           onPress={() => {
             setText(text = get(texts, 'shakespeare'))
-            navigate('Read')
+            navigate('Read', { author: 'shakespeare' })
           }}>
           William Shakespeare
         </Text>
