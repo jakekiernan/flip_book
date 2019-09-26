@@ -2,10 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SliderBar } from './SliderBar';
 import { ProgressBar } from './ProgressBar';
+import { ThemedButton } from './ThemedButton';
 
 export function FooterBar({ speed, setSpeed, textLen, countObj }) {
   return (
     <View style={styles.container}>
+      <ThemedButton />
       <Text style={styles.text}>Progress</Text>
       <View style={styles.slider}>
         <Text style={styles.sliderText}>{countObj.count}</Text>
