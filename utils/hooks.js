@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback, useRef } from 'react';
 
 
-export function useCounter(initialCount = 0) {
+const useCounter = (initialCount = 0) => {
   const [count, setCount] = useState(initialCount);
 
   const reset = useCallback(() => {
@@ -14,3 +14,17 @@ export function useCounter(initialCount = 0) {
     reset,
   }))
 }
+
+const useText = (initialText = '', initialAuthorKey = '') => {
+  const [text, setText] = useState(initialText);
+  const [authorKey, setAuthorKey] = useState(initialAuthorKey);
+
+  return useMemo(() => ({
+    text, 
+    setText,
+    authorKey,
+    setAuthorKey,
+  }))
+}
+
+export { useCounter, useText };

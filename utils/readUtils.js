@@ -26,15 +26,16 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 
-const resetCounter = (callback, page) => {
+const resetCounter = (callback, count) => {
   const savedCallback = useRef();
 
   useEffect(() => {
     savedCallback.current = callback;
-    if (page === 'home') {
+    if (count == true) {
+      console.log(count)
       savedCallback.current();
     }
-  });
+  }, [count]);
 };
 
 const getFirstTen = text => {

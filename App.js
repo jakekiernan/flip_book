@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Main } from './Routing'
 import { FooterBar } from './components';
-import { splitArr, useCounter } from './utils';
+import { splitArr, useCounter, useText } from './utils';
 
 function App() {
-  const [speed, setSpeed] = useState(50);
-  const [text, setText] = useState('');
+  const [ speed, setSpeed ] = useState(50);
+  const { text, setText, authorKey, setAuthorKey } = useText();
   const { count, setCount, reset } = useCounter();
 
   const screenProps = {
-    textObj: { text, setText },
+    textObj: { text, setText, authorKey, setAuthorKey },
     countObj: { count, setCount, reset },
     speed
   }

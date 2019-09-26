@@ -5,10 +5,8 @@ import { texts } from '../assets/texts';
 import { getFirstTen, resetCounter } from '../utils';
 
 export function HomeScreen ({navigation: { navigate }, screenProps }) {
-  let { setText } = screenProps.textObj;
-  let { reset } = screenProps.countObj; // TODO replace screenProps with useContext https://reactjs.org/docs/hooks-reference.html#usecontext
-
-  // resetCounter(reset, 'home');
+  let { setText, setAuthorKey } = screenProps.textObj; // TODO replace screenProps with useContext https://reactjs.org/docs/hooks-reference.html#usecontext
+  const { countObj: { count, reset } } = screenProps
 
   return (
     <View style={styles.container}>
@@ -17,15 +15,17 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'shakespeare'))
-            navigate('Read', { author: 'shakespeare' })
+            setText(get(texts, 'shakespeare'))
+            setAuthorKey('shakespeare')
+            navigate('Read', { resetCount: true })
           }}>
           William Shakespeare
         </Text>
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'shakespeare'))
+            setText(get(texts, 'shakespeare'))
+            setAuthorKey('shakespeare')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'shakespeare'))}...
@@ -35,7 +35,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'dostoevsky'))
+            setText(get(texts, 'dostoevsky'))
+            setAuthorKey('dostoevsky')
             navigate('Read')
           }}>
           Fyodor Dostoevsky
@@ -43,7 +44,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'dostoevsky'))
+            setText(get(texts, 'dostoevsky'))
+            setAuthorKey('dostoevsky')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'dostoevsky'))}...
@@ -53,7 +55,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'eliot'))
+            setText(get(texts, 'eliot'))
+            setAuthorKey('eliot')
             navigate('Read')
           }}>
           George Eliot
@@ -61,7 +64,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'eliot'))
+            setText(get(texts, 'eliot'))
+            setAuthorKey('eliot')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'eliot'))}...
@@ -71,7 +75,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'shelley'))
+            setText(get(texts, 'shelley'))
+            setAuthorKey('shelley')
             navigate('Read')
           }}>
           Mary Shelley
@@ -79,7 +84,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'shelley'))
+            setText(get(texts, 'shelley'))
+            setAuthorKey('shelley')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'shelley'))}...
@@ -89,7 +95,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'dickens'))
+            setText(get(texts, 'dickens'))
+            setAuthorKey('dickens')
             navigate('Read')
           }}>
           Charles Dickens
@@ -97,7 +104,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'dickens'))
+            setText(get(texts, 'dickens'))
+            setAuthorKey('dickens')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'dickens'))}...
@@ -107,7 +115,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'twain'))
+            setText(get(texts, 'twain'))
+            setAuthorKey('twain')
             navigate('Read')
           }}>
           Mark Twain
@@ -115,7 +124,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'twain'))
+            setText(get(texts, 'twain'))
+            setAuthorKey('twain')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'twain'))}...
@@ -125,7 +135,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'woolf'))
+            setText(get(texts, 'woolf'))
+            setAuthorKey('woolf')
             navigate('Read')
           }}>
           Virgina Woolf
@@ -133,7 +144,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'woolf'))
+            setText(get(texts, 'woolf'))
+            setAuthorKey('woolf')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'woolf'))}...
@@ -143,7 +155,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'hemingway'))
+            setText(get(texts, 'hemingway'))
+            setAuthorKey('hemingway')
             navigate('Read')
           }}>
           Ernest Hemingway
@@ -151,7 +164,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'hemingway'))
+            setText(get(texts, 'hemingway'))
+            setAuthorKey('hemingway')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'hemingway'))}...
@@ -161,7 +175,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'tolstoy'))
+            setText(get(texts, 'tolstoy'))
+            setAuthorKey('tolstoy')
             navigate('Read')
           }}>
           Leo Tolstoy
@@ -169,7 +184,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'tolstoy'))
+            setText(get(texts, 'tolstoy'))
+            setAuthorKey('tolstoy')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'tolstoy'))}...
@@ -179,7 +195,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.author}
           onPress={() => {
-            setText(text = get(texts, 'christie'))
+            setText(get(texts, 'christie'))
+            setAuthorKey('christie')
             navigate('Read')
           }}>
           Agatha Christie
@@ -187,7 +204,8 @@ export function HomeScreen ({navigation: { navigate }, screenProps }) {
         <Text
           style={styles.previewText}
           onPress={() => {
-            setText(text = get(texts, 'christie'))
+            setText(get(texts, 'christie'))
+            setAuthorKey('christie')
             navigate('Read')
           }}>
           {getFirstTen(get(texts, 'christie'))}...
