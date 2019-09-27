@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { splitArr, showWord } from '../utils';
 
-export function WordDisplay({ text, count }) {
+export const WordDisplay = ({ text, count }) => {
   return (
     <View style={styles.container}>
       <Text

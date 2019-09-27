@@ -1,12 +1,20 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Slider } from 'react-native';
+import { useStateValue } from '../state';
 
-export function SliderBar({ speed, setSpeed }) {
+export const SpeedBar = () => {
+  const [{ speed }, dispatch] = useStateValue();
+
   return (
     <Slider
       value={speed}
-      onValueChange={value => setSpeed(speed = value)}
+      onValueChange={value => 
+        dispatch({
+          type: 'changeSpeed',
+          value,
+        })
+      }
       step={1}
       style={styles.slider}
       minimumValue={0}

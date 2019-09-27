@@ -1,15 +1,22 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Slider } from 'react-native';
+import { useStateValue } from '../state';
+import { splitArr } from '../utils'
 
-export function ProgressBar({ textLen, countObj }) {
-  let { count, setCount } = countObj;
+export const ProgressBar = () => {
+  const [{ count, text: { text } }, dispatch] = useStateValue();
 
   return (
     <Slider
       value={count}
-      maximumValue={textLen}
-      onValueChange={value => setCount(count = value)}
+      maximumValue={splitArr(text).length}
+      onValueChange={value => 
+        dispatch({
+          type: 'scrollText',
+          value,
+        })
+      }
       step={1}
       style={styles.slider}
       minimumTrackTintColor="#1E1E1E"

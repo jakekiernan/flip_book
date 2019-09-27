@@ -16,7 +16,7 @@ const useInterval = (callback, delay) => {
   }, [callback]);
 
   useEffect(() => {
-    function tick() {
+    tick = () => {
       savedCallback.current();
     }
     if (delay !== null) {
@@ -32,7 +32,6 @@ const resetCounter = (callback, count) => {
   useEffect(() => {
     savedCallback.current = callback;
     if (count == true) {
-      console.log(count)
       savedCallback.current();
     }
   }, [count]);

@@ -1,26 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { SliderBar } from './SliderBar';
+import { SpeedBar } from './SpeedBar';
 import { ProgressBar } from './ProgressBar';
-import { ThemedButton } from './ThemedButton';
+import { useStateValue } from '../state';
 
-export function FooterBar({ speed, setSpeed, textLen, countObj }) {
+export const FooterBar = () => {
+  const [{ count, speed }, _dispatch] = useStateValue();
+
   return (
     <View style={styles.container}>
-      <ThemedButton />
       <Text style={styles.text}>Progress</Text>
       <View style={styles.slider}>
-        <Text style={styles.sliderText}>{countObj.count}</Text>
-        <ProgressBar
-          textLen={textLen}
-          countObj={countObj} />
+        <Text style={styles.sliderText}>{count}</Text>
+        <ProgressBar />
       </View>  
       <Text style={styles.text}>Flip Speed</Text>
       <View style={styles.slider}>
         <Text style={styles.sliderText}>{speed}</Text>
-        <SliderBar
-          speed={speed}
-          setSpeed={setSpeed} />
+        <SpeedBar />
       </View>
     </View>
   );

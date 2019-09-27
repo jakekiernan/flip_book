@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import { WordDisplay } from '../components';
 import { useInterval, convertSpeed, splitArr, invertNumber } from '../utils'
+import { useStateValue } from '../state';
 
-export function ReadScreen ({ navigation: { navigate, getParam }, screenProps }) {
-  const { text } = screenProps.textObj
-  const { countObj: { count, setCount }, speed } = screenProps // TODO replace screenProps with useContext https://reactjs.org/docs/hooks-reference.html#usecontext
+export const ReadScreen = ({ navigation: { navigate } }) => {
   let [isRunning, setIsRunning] = useState(true);
+  const [{ count, text: { text }, speed }, dispatch] = useStateValue();
+  const pauseText = isRunning ? 'Pause' : 'Start';
 
   useInterval(() => {
     if (count >= splitArr(text).length) {
       return;
     }
-    setCount(count + 1);
+    dispatch({
+      type: 'incrementCounter',
+    })
   }, isRunning ? convertSpeed(invertNumber(speed)) : null);
-
-  const pauseText = isRunning ? 'Pause' : 'Start'
-
-  const author = (getParam('author'))
 
   return (
     <View style={styles.container}>

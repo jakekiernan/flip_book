@@ -1,34 +1,18 @@
 import React, { useState } from 'react';
-import { StateProvider } from './AppState';
-import { MainReducer, InitialState } from './Reducers'
+import { StateProvider, mainReducer, initialState } from './state';
 import { StyleSheet, View } from 'react-native';
 import { Main } from './Routing'
 import { FooterBar } from './components';
-import { splitArr, useCounter, useText } from './utils';
 
 const App = () => {
-  const [ speed, setSpeed ] = useState(50);
-  const { text, setText, authorKey, setAuthorKey } = useText();
-  const { count, setCount, reset } = useCounter();
-
-  const screenProps = {
-    textObj: { text, setText, authorKey, setAuthorKey },
-    countObj: { count, setCount, reset },
-    speed
-  }
-
   return (
-    <StateProvider initialState={InitialState} reducer={MainReducer}>
+    <StateProvider initialState={initialState} reducer={mainReducer}>
       <View style={styles.container}>
         <View style={styles.main}>
-          <Main screenProps={screenProps} />
+          <Main />
         </View>
         <View style={styles.footer}>
-          <FooterBar
-            setSpeed={setSpeed}
-            speed={speed}
-            textLen={splitArr(text).length}
-            countObj={screenProps.countObj} />
+          <FooterBar />
         </View>
       </View>
     </StateProvider>
