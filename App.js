@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StateProvider, mainReducer, initialState } from './state';
 import { StyleSheet, View } from 'react-native';
 import { Main } from './Routing'

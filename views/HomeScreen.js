@@ -1,14 +1,13 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { get } from 'lodash';
-import { texts } from '../assets/texts';
-import { getFirstTen } from '../utils';
 import { useStateValue } from '../state';
+import { getFirstTen } from '../utils';
+import { texts, authorList } from '../assets/texts';
 
 export const HomeScreen = ({ navigation: { navigate } }) => {
   const [_state, dispatch] = useStateValue();
 
-  // TODO add first names
   return (
     <View style={styles.container}>
       {Object.keys(texts).map(author =>
@@ -24,7 +23,11 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
               })
               navigate('Read')
             }}>
-            {`${author[0].toUpperCase()}${author.slice(1)}`}
+            {authorList.map(auth => {
+              if (auth.toLowerCase().includes(author)) {
+                return auth;
+              }
+            })}
           </Text>
           <Text
             style={styles.previewText}

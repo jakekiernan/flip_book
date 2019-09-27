@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
+import { useStateValue } from '../state';
 import { WordDisplay } from '../components';
 import { useInterval, convertSpeed, splitArr, invertNumber } from '../utils'
-import { useStateValue } from '../state';
 
 export const ReadScreen = ({ navigation: { navigate } }) => {
   let [isRunning, setIsRunning] = useState(true);

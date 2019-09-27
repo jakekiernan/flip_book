@@ -1,3 +1,16 @@
+export const authorList = [
+  'William Shakespeare',
+  'Fyodor Dostoevsky',
+  'Mary Shelley',
+  'George Eliot',
+  'Charles Dickens',
+  'Mark Twain',
+  'Virginia Woolf',
+  'Ernest Hemingway',
+  'Leo Tolstoy',
+  'Agatha Christie'
+]
+
 export const texts = {
   shakespeare: `All the world’s a stage, And all the men and women merely players; They have their exits and their entrances; And one man in his time plays many parts, His acts being seven ages. At first the infant, Mewling and puking in the nurse’s arms; And then the whining school-boy, with his satchel And shining morning face, creeping like snail Unwillingly to school. And then the lover, Sighing like furnace, with a woeful ballad Made to his mistress’ eyebrow. Then a soldier, Full of strange oaths, and bearded like the pard, Jealous in honour, sudden and quick in quarrel, Seeking the bubble reputation Even in the cannon’s mouth. And then the justice, In fair round belly with good capon lin’d, With eyes severe and beard of formal cut, Full of wise saws and modern instances; And so he plays his part. The sixth age shifts Into the lean and slipper’d pantaloon, With spectacles on nose and pouch on side; His youthful hose, well sav’d, a world too wide For his shrunk shank; and his big manly voice, Turning again toward childish treble, pipes And whistles in his sound. Last scene of all, That ends this strange eventful history, Is second childishness and mere oblivion; Sans teeth, sans eyes, sans taste, sans everything.`,
   dostoevsky: `Once upon a time there was a woman, and she was wicked as wicked could be, and she died. And not one good deed was left behind her. The devils took her and threw her into the lake of fire. And her guardian angel stood thinking: what good deed of hers can I remember to tell God? Then he remembered and said to God: once she pulled up an onion and gave it to a beggar woman. And God answered: take now that same onion, hold it out to her in the lake, let her take hold of it and pull, and if you pull her out of the lake, she can go to paradise. The angel ran to the woman and held out the onion to her: here, woman, he said, take hold of it and I’ll pull. And he began pulling carefully, and had almost pulled her all of the way out, when other sinners in the lake saw her being pulled out and all began holding on to her so as to be pulled out with her. But the woman was wicked as wicked could be, and she began to kick them with her feet: ‘It’s me who’s getting pulled out, not you; it’s my onion, not yours.’ No sooner did she say it than the onion broke. And the woman fell back into the lake and is burning there to this day. And the angel wept and went away.`,

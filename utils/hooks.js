@@ -1,5 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from 'react';
-
+import { useState, useMemo, useCallback } from 'react';
 
 const useCounter = (initialCount = 0) => {
   const [count, setCount] = useState(initialCount);
