@@ -33,16 +33,21 @@ export const mainReducer = (state, action) => {
         }
       };
     case 'changeSpeed':
-        return {
-          ...state,
-          speed: action.value,
-        };
+      return {
+        ...state,
+        speed: action.value,
+      };
     case 'scrollText':
-        return {
-          ...state,
-          count: action.value,
-        };
-      
+      return {
+        ...state,
+        count: action.value,
+      };
+    case 'resetCounter':
+      return {
+        ...state,
+        count: 0,
+      };
+
     default:
       return state;
   }

@@ -21,20 +21,28 @@ const useInterval = (callback, delay) => {
     }
     if (delay !== null) {
       let id = setInterval(tick, delay);
-      return () => clearInterval(id);
+      return () => {
+        clearInterval(id)
+      };
     }
   }, [delay]);
 };
 
-const resetCounter = (callback, count) => {
+const resetCounter = (callback) => {
   const savedCallback = useRef();
 
   useEffect(() => {
     savedCallback.current = callback;
-    if (count == true) {
+  }, [callback]);
+
+  useEffect(() => {
+    reset = () => {
       savedCallback.current();
     }
-  }, [count]);
+    if (callback !== null) {
+      reset();
+    }
+  }, [callback]);
 };
 
 const getFirstTen = text => {

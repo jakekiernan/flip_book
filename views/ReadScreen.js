@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import { useStateValue } from '../state';
 import { WordDisplay } from '../components';
-import { useInterval, convertSpeed, splitArr, invertNumber } from '../utils'
+import { useInterval, convertSpeed, showWord, splitArr, invertNumber } from '../utils'
 
 export const ReadScreen = ({ navigation: { navigate } }) => {
   let [isRunning, setIsRunning] = useState(true);
@@ -18,11 +18,12 @@ export const ReadScreen = ({ navigation: { navigate } }) => {
     })
   }, isRunning ? convertSpeed(invertNumber(speed)) : null);
 
+  const word = showWord(splitArr(text), count);
+
   return (
     <View style={styles.container}>
       <WordDisplay
-        text={text}
-        count={count} />
+        word={word} />
       <Button 
         title={pauseText}
         color="#1E1E1E"
@@ -31,7 +32,12 @@ export const ReadScreen = ({ navigation: { navigate } }) => {
       <Button 
         title="Back"
         color="#1E1E1E"
-        onPress={() => navigate('Home', { resetCount: 0 })}
+        onPress={() => {
+          dispatch({
+            type: 'resetCounter'
+          })
+          navigate('Home', { resetCount: 0 })
+        }}
         style={styles.button} />
     </View>
   );

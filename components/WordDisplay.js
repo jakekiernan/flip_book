@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { splitArr, showWord } from '../utils';
 
-export const WordDisplay = ({ text, count }) => {
+export const WordDisplay = ({ word }) => {
+
   return (
     <View style={styles.container}>
       <Text
         style={styles.baseText}>
-        {showWord(splitArr(text), count)}
+        {word}
       </Text>
     </View>
   );
